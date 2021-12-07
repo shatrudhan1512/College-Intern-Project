@@ -14,10 +14,6 @@ const isValidRequestBody = function(requestBody) {
 //-------------This function will help to create the college -----------
 const createCollege = async function (req, res) {
     try {
-        // let college = req.body
-        // let name=req.body.name
-        // let fullname=req.body.fullName
-        // let logolink=req.body.logoLink
         const requestBody = req.body;
         const{name,fullName,logoLink}=requestBody
        
