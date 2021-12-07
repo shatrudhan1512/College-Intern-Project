@@ -53,7 +53,7 @@ Refer below sample
 - We have validate some data like email,mobile no & logolink before using them in our code.
 
 Group Members:
-- Shatrudhan Kumar
+- 
 - Mazhar Alam
 - Mohammed Saleem
 - Ravikant 
