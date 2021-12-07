@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const InternSchema = new mongoose.Schema({
+const internSchema = new mongoose.Schema({
 
     name: {
         type: String,
@@ -13,22 +13,14 @@ const InternSchema = new mongoose.Schema({
         lowercase: true,
         unique: true,
         required: 'Email address is required',
-        // validate: {
-        //     validator: function (email) {
-        //         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-        //     }, message: 'Please fill a valid email address', isAsync: false
-        // }
+  
     },
     mobile: {
         type: Number,
         trim: true,
         unique: true,
         required: 'Mobile No is required',
-        // validate: {
-        //     validator: function (phoneno) {
-        //         return /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phoneno)
-        //     }, message: 'Please fill a valid Phone Number', isAsync: false
-        // }
+
     },
 
     collegeId: {
@@ -45,5 +37,5 @@ const InternSchema = new mongoose.Schema({
 
 }, { timestamps: true })
 
-module.exports = mongoose.model('Intern', InternSchema)
+module.exports = mongoose.model('Intern', internSchema)
 

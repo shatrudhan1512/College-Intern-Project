@@ -8,7 +8,7 @@ return true;}
 const isValidRequestBody = function(requestBody) {
     return Object.keys(requestBody).length > 0
 }
-//-------This function is for Intern creation and entry-------
+//-------This function is for Intern creation -------
 const internCreation = async function (req, res) {
     try {
         const requestBody = req.body;
@@ -17,19 +17,19 @@ const internCreation = async function (req, res) {
         let collegeName = req.query.collegeName;
         
         if(!isValidRequestBody (requestBody)) {
-            res.status(404).send({status: false, msg: "Plz enter intern details" })
+            res.status(400).send({status: false, msg: "Plz enter intern details" })
             return
         }
         if(!isValid(name)) {
-            res.status(404).send({status: false, msg: "Plz enter Interns name" })
+            res.status(400).send({status: false, msg: "Plz enter Interns name" })
             return
         }
         if(!isValid(email)) {
-            res.status(404).send({status: false, msg: "Plz enter Interns email" })
+            res.status(400).send({status: false, msg: "Plz enter Interns email" })
             return
         }
         if(!isValid(mobile)) {
-            res.status(404).send({status: false, msg: "Plz enter Interns mobile no." })
+            res.status(400).send({status: false, msg: "Plz enter Interns mobile no." })
             return
         }
         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
@@ -52,17 +52,17 @@ const internCreation = async function (req, res) {
             res.status(400).send({status: false, message: `${mobile} mobile no is already registered`})
             return
         }
-         let validCollegeData = await collegeModel.findOne({name:collegeName});
+         let validCollegeData = await collegeModel.findOne({name:collegeName,isDeleted:false});
        
         requestBody.collegeId=validCollegeData._id
 
             let savedData = await internModel.create(requestBody)
-            res.status(201).send({ data: savedData });
+            res.status(201).send({status: true, data: {savedData} });
        
     }
     catch (err) {
-        console.log(err.message);
-        res.status(500).send({ msg: "Some error occured" });
+        
+        res.status(500).send({status: false, msg: err.message });
     }
 }
 
