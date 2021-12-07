@@ -39,16 +39,16 @@ Each member of each team should have their tests in running state
 Refer below sample
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-#Solution of Project 2 [Internship Project]
-##Models
+# Solution of Project 2 [Internship Project]
+## Models
 -Firstly we have to create 2 models, collegeModel & internModel,& we have used the mentioned keys in our models with mentioned features(like mandatory,unique etc.).
-##Controllers
+## Controllers
 -After creating the models we have created the three API's in controllers.There are two controllers, collegeController & internController.
-###collegeController
+### collegeController
 -In collegeController we have wrote 2 API's 
 -[POST /functionup/colleges]-> This post api is used to create college document.For creating a college document we must receive some data(like name,fullName,logoLink,isDeleted) in request body.Logolink was provided by our mentors.
 -[GET /functionup/collegeDetails]-> This get api is used to fetch all the college data with the intern details who have been registered in that particular college by using the college name(abbreviate name) in query params.
-###internController
+### internController
 -In internController we have wrote one api [POST /functionup/interns] which is used to create intern documents.For creating an intern document we must receive (neme,email,mobile,isDeleted)in request body & also receive the college name(abbreviate name) in query params by using that name we should fetch the collegeId & store that id in interns document.
 -We have validate some data like email,mobile no & logolink before using them in our code.
 
