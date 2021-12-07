@@ -38,7 +38,7 @@ Each request in the collection should be rightly named. Eg Create college, Get c
 Each member of each team should have their tests in running state
 Refer below sample
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Solution of Project 2 [Internship Project]
 ##Models
 -Firstly we have to create 2 models, collegeModel & internModel,& we have used the mentioned keys in our models with mentioned features(like mandatory,unique etc.).
