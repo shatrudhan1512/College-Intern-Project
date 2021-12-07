@@ -52,3 +52,5 @@ Refer below sample
 - In internController we have wrote one api [POST /functionup/interns] which is used to create intern documents.For creating an intern document we must receive (neme,email,mobile,isDeleted)in request body & also receive the college name(abbreviate name) in query params by using that name we should fetch the collegeId & store that id in interns document.
 - We have validate some data like email,mobile no & logolink before using them in our code.
 
+Group Members:
+  Mohammed saleem
