@@ -12,9 +12,9 @@ const isValidRequestBody = function(requestBody) {
 const internCreation = async function (req, res) {
     try {
         const requestBody = req.body;
-        const{name,email,mobile,collegeName}=requestBody
+        const{name,email,mobile}=requestBody
        
-        //let collegeName = req.query.collegeName;
+        let collegeName = req.query.collegeName;
         
         if(!isValidRequestBody (requestBody)) {
             res.status(400).send({status: false, msg: "Plz enter intern details" })
@@ -30,10 +30,6 @@ const internCreation = async function (req, res) {
         }
         if(!isValid(mobile)) {
             res.status(400).send({status: false, msg: "Plz enter Interns mobile no." })
-            return
-        }
-        if(!isValid(collegeName)) {
-            res.status(400).send({status: false, msg: "Plz enter collge name" })
             return
         }
         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
