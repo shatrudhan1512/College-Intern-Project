@@ -12,14 +12,12 @@ const collegeSchema = new mongoose.Schema({
     fullName: {
         type: String,
         required: true,
-        unique: true,
         trim: true
     },
     logoLink: {
         type: String,
         required: true,
         trim: true,
-        unique: true,
      
 
     }, isDeleted: {

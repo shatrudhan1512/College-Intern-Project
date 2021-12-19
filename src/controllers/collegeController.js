@@ -1,4 +1,3 @@
-
 const collegeModel = require('../models/CollegeModel')
 const internModel = require('../models/InternModels')
 
@@ -38,6 +37,11 @@ const createCollege = async function (req, res) {
         res.status(400).send({status: false, message: `Logolink should be a valid url`})
         return
     }
+    const collegeData = await collegeModel.findOne({name})
+    if(collegeData) {
+        res.status(400).send({status: false, msg: "This abbreviate name is already Registered" })
+        return
+    }
 
         if (requestBody) {
             let savedcollege = await collegeModel.create(requestBody)
@@ -55,6 +59,10 @@ const createCollege = async function (req, res) {
 const getCollege = async function (req, res) {
     try {
         let collegeName = req.query.collegeName;
+        if(!isValid(collegeName)) {
+            res.status(400).send({status: false, msg: "Plz enter College abbreviate name" })
+            return
+        }
 
         let foundCollege = await collegeModel.findOne({ name: collegeName, isDeleted: false })
 
@@ -64,7 +72,7 @@ const getCollege = async function (req, res) {
         foundCollege.interests = internsDetails
 
         if (foundCollege) {
-            res.status(200).send({ status: true, data: {foundCollege }});
+            res.status(200).send({ status: true, data: foundCollege});
         }
         else {
             res.status(404).send({ status: false, msg: "No documents found" });
